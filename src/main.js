@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
+import { createApp } from "vue"
+import { IonicVue } from "@modus/ionic-vue"
+import router from "@/router"
 
-Vue.config.productionTip = false
+// Ionic core styles
+import "@ionic/core/css/ionic.bundle.css"
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+import App from '@/App'
+
+createApp(App)
+  .use(IonicVue)
+  .use(router)
+  .mount("#app")

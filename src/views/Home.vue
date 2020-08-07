@@ -1,18 +1,44 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <IonTab tab="tab1">
+    <div class="ion-page">
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Home</IonTitle>
+          <IonButtons>
+            <IonBackButton/>
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent>
+        <h1>Plain old Home Page</h1>
+      </IonContent>
+    </div>
+  </IonTab>
+
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import {
+  IonTab,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+  IonContent,
+} from '@modus/ionic-vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    IonTab,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonButtons,
+    IonBackButton,
+    IonContent,
   }
 }
 </script>

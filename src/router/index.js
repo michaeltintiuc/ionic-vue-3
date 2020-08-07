@@ -1,29 +1,41 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import { createWebHistory } from "vue-router"
+import { createRouter } from "@modus/ionic-vue"
 
-Vue.use(VueRouter)
+import Home from "@/views/Home.vue"
+import Tabs from "@/views/Tabs.vue"
+import AboutTab from "@/views/AboutTab.vue"
+import AboutDefault from "@/views/AboutDefault.vue"
+import AboutDetails from "@/views/AboutDetails.vue"
 
-  const routes = [
-  {
+const history = createWebHistory();
+
+const router = createRouter({
+  history,
+  routes: [{
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: Tabs,
+    children: [
+      {
+        path: "home",
+        component: Home
+      },
+      {
+        path: "about",
+        component: AboutTab,
+        children: [
+          {
+            path: "",
+            component: AboutDefault
+          },
+          {
+            path: "details",
+            component: AboutDetails
+          },
+        ]
+      },
+    ]
   }
-]
-
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+  ],
+});
 
 export default router
