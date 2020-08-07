@@ -19,24 +19,20 @@
 <script>
 import {
   IonApp,
-  IonTab,
   IonTabs,
   IonLabel,
   IonTabBar,
-  IonTabButton,
-  IonRouterView
+  IonTabButton
 } from "@modus/ionic-vue";
 
 export default {
   name: "App",
   components: {
     IonApp,
-    IonTab,
     IonTabs,
     IonLabel,
     IonTabBar,
-    IonTabButton,
-    IonRouterView
-  },
+    IonTabButton
+  }
 };
 </script>
